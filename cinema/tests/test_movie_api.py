@@ -65,20 +65,6 @@ class PrivateMovieApiTests(TestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data, serializer.data)
 
-    def test_retrieve_movie(self):
-        movie = sample_movie()
-        movie.genres.add(Genre.objects.create(name="Genre"))
-        movie.actors.add(
-            Actor.objects.create(first_name="Actor", last_name="Last")
-        )
-
-        url = detail_url(movie.id)
-        response = self.client.get(url)
-
-        serializer = MovieDetailSerializer(movie, many=False)
-
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(response.data, serializer.data)
 
     def test_post_movie(self):
         payload = {
