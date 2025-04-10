@@ -6,9 +6,6 @@ from rest_framework import mixins, status, viewsets
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.exceptions import NotFound
 from rest_framework.pagination import PageNumberPagination
-from rest_framework.permissions import SAFE_METHODS
-from rest_framework.response import Response
-
 from cinema.models import Actor, CinemaHall, Genre, Movie, MovieSession, Order
 from cinema.permissions import (IsAdminOrIfAuthenticatedReadOnly,
                                 IsAuthenticatedAndReadOrCreateOnly)
